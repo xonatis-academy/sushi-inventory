@@ -9,6 +9,7 @@ Welcome to this amazing tutorial about doing some OOP to manage the inventory (f
 - composer install
 
 ### Prepare the database
+- change the database URL in the file .env : DATABASE_URL=mysql://<username>:<password>@127.0.0.1:3306/sushi_restauran
 - php bin/console make:migration
 - php bin/console make:fixtures
 - php bin/console doctrine:migrations:migrate
