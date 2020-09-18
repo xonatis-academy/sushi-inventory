@@ -5,7 +5,7 @@ Welcome to this amazing tutorial about doing some OOP to manage the inventory (f
 ### Clone the project (without forking)
 - git clone https://github.com/xonatis-academy/sushi-inventory.git
 
-## Install dependencies
+### Install dependencies
 - composer install
 
 ### Prepare the database
