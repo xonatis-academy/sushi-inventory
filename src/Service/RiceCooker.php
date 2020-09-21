@@ -1,16 +1,19 @@
 <?php
 namespace App\Service;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Rice;
 
 class RiceCooker {
-    private $fishCutter;
+    private $entityManager;
 
-    function __construct(FishCutter $fishCutter) {
-        $this->fishCutter = $fishCutter;
+    function __construct(EntityManagerInterface $entityManager) {
+        $this->entityManager = $entityManager;
     }
 
-    public function cookRiceAndAddFish() {
-        $fish = $this->fishCutter->cutFish();
-        return $fish.' + riz vinaigré';
+    public function cookRice() {
+        $rices = $this->entityManager->getRepository(Rice::class)->findAll();
+        $rice = $rices[0];
+        return $rice->getName();
     }
 }
 ?>

@@ -2,17 +2,20 @@
 namespace App\Service;
 
 use App\Repository\FishRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Fish;
 
 class FishCutter {
-    private $fishRepository;
+    private $entityManager;
 
-    function __construct(FishRepository $fishRepository) {
-        $this->fishRepository = $fishRepository;
+    function __construct(EntityManagerInterface $entityManager) {
+        $this->entityManager = $entityManager;
     }
 
     public function cutFish() {
-        $fishes = $this->fishRepository->findAll();
-        return $fishes[0].' finement coupé';
+        $fishes = $this->entityManager->getRepository(Fish::class)->findAll();
+        $firstFish = $fishes[0];
+        return $firstFish->getName().' finement coupé';
     }
 }
 ?>

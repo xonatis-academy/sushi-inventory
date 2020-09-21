@@ -4,25 +4,20 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Service\Roller;
+use App\Service\SushiManager;
 
 class SushiController extends AbstractController
 {
     /**
      * @Route("/sushi", name="sushi")
      */
-    public function index(Roller $roller)
+    public function index(SushiManager $sushiManager)
     {
-        /** We cant the roller to return a data like so:
-         * $sushi = [
-         *   'description' => 'Saumon finement coupé, Algue verte, Rice vinaigré, Carré, Wasabi, Gingembre',
-         *   'prix' => 23
-         * ];
-         */
-        
+        $sushi = $sushiManager->makeSushi();
+
         return $this->render('sushi/index.html.twig', [
             'controller_name' => 'SushiController',
-            'resultat' => 'Rien du tout'
+            'resultat' => $sushi
         ]);
     }
 }

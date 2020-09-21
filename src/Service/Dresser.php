@@ -2,14 +2,7 @@
 namespace App\Service;
 
 class Dresser {
-    private $assembler;
-
-    function __construct(Assembler $assembler) {
-        $this->assembler = $assembler;
-    }
-
-    public function dress() {
-        $sushiBase = $this->assembler->assemble();
+    public function dress($sushiBase) {
         return $sushiBase.' + Gingembre et du Wasabi';
     }
 }

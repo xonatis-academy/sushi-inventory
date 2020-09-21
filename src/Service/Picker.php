@@ -2,8 +2,8 @@
 namespace App\Service;
 
 class Picker {
-    function __construct(Dresser $desser) {
-        
+    public function pick($dressed) {
+        return $dressed. ' + sel + poivre';
     }
 }
 ?>
